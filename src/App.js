@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Advance from './module/advanced'
+import Menu from './module/menu'
+import News from './module/news'
+import Pages from './module/page'
+import Permission from './module/permission'
+import Roles from './module/role'
+import User from './module/user'
+import Dasboard from './module/dashboard'
+import ResponsiveDrawer from "./components/appbar"
+import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+       <ResponsiveDrawer />
+  
+       <Switch>
+       <Route exact path="/">
+        <Dasboard/>
+        </Route>
+        <Route exact path="/advance">
+        <Advance/>
+        </Route>
+        <Route exact path="/menu">
+        <Menu/>
+        </Route>
+        <Route exact path="/news">
+        <News/>
+        </Route>
+        <Route exact path="/pages">
+        <Pages/>
+        </Route>
+        <Route exact path="/permission">
+        <Permission/>
+        </Route>
+        <Route exact path="/roles">
+        <Roles/>
+        </Route>
+        <Route exact path="/user">
+        <User/>
+        </Route>
+
+
+        </Switch>
+
+
+      </Router>
     </div>
   );
 }
